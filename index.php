@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <body bgcolor="#3399FF">
-        <h1> Welcome to COSC4806_Assign2</h1>
+        <h1> Welcome to COSC4806 Assign2</h1>
     </body>
 </html>
 

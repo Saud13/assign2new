@@ -40,3 +40,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <input type="password" name="password" id="password"><br/>
     <input type="submit" value="Log In">
 </form>
+
+<form method ="post" action="fail attempts.php">
+    <input type="submit" value="Attembts">
+</form>

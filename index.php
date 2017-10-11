@@ -17,6 +17,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
 }
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
+    
     if ($_POST['username'] == $username && $_POST['password'] == $password) {
         $_SESSION['loggedIn'] = true;
         $_SESSION['username'] = $_POST['username'];
@@ -24,6 +25,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         header('Location: success.php');
     } else {
         // $_SESSION['loggedIn'] = false;
+        
         $_SESSION['failed'] = $_SESSION['failed'] + 1;
         echo "Invalid username/password!" . $_SESSION['failed'];
     }
@@ -36,11 +38,22 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <form method ="post" action="index.php">
     <label for ="Username">Username:</label><br/>
     <input type="text" name="username" id="username"><br/>
+
     <label for ="password">password:</label><br/>
     <input type="password" name="password" id="password"><br/>
+
+<br/>
     <input type="submit" value="Log In">
 </form>
 
+<br/>
+
 <form method ="post" action="fail attempts.php">
-    <input type="submit" value="Attembts">
+    <input type="submit" value="Attempts">
+</form>
+
+<br/>
+
+<form method ="post" action="Signup.php">
+    <input type="submit" value="Sign up">
 </form>

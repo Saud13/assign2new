@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 echo "Logged In!    Hello, " . $_SESSION['username'] . " ,Your password is: " . $_SESSION['password'] . " Today's date : " . date("d/m/Y") . "  Time is " . date("H:i");
@@ -15,10 +13,9 @@ else{
     
     
 }
-
+//end of change
 ?> 
-
-//end of change 
+ 
 
 <form method ="post" action="logout.php">
     <input type="submit" value="Logout">

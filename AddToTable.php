@@ -22,7 +22,7 @@ try {
 			VALUES ('$user','$pass','$fname' ,'$lname','$email')";
     // use exec() because no results are returned
     $conn->exec($sql);
-    echo "New record created successfully";
+    echo "New user has been created successfully";
 } catch (PDOException $e) {
 
     echo $sql . "<br>" . $e->getMessage();

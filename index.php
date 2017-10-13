@@ -19,17 +19,21 @@ if (isset($_SESSION['fail']) == true) {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
+
+        $isPasswordCorrect = password_verify($password, $hash);
+        
         $conn = mysqli_connect($servername, $dbusername, $dbpassword) or die("Could not connect to database");
         mysqli_select_db($conn, $dbname);
         $query = "SELECT * FROM users WHERE Username = '$username' AND Password = '$password'";
         $result = mysqli_query($conn, $query);
         $rowSelected = mysqli_num_rows($result);
-        if ($rowSelected == true) {
+      
+        if($rowSelected == true) {
             header("Location: welcome.php");
         } else {
 
             $_SESSION['fail'] = $_SESSION['fail'] + 1;
-            echo $hashPass;
+            //echo $hashPass;
             echo "User or Password is Wrong!";
         }
     } else {

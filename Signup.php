@@ -1,3 +1,10 @@
+<!DOCTYPE HTML>
+<html>
+    <body bgcolor="#3399FF">
+        <h1> Sign up </h1>
+    </body>
+
+
 
 
 <form method ="post" action="AddToTable.php">
@@ -19,3 +26,4 @@
     <input type="submit" value="Create new account">
 
 </form>
+    </html>

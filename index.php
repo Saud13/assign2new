@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <body bgcolor="#3399FF">
-        <h1> Welcome to COSC4806 Assign2</h1>
-    </body>
+
 </html>
 
 <?php
@@ -12,39 +11,33 @@ $dbusername = "root";
 $dbpassword = "";
 $dbname = "cosc";
 
-
-
 if (isset($_SESSION['fail']) == true) {
-    if (isset($_POST['username']) && isset($_POST['password']) == true) {
+    if (isset($_POST['username']) == true && isset($_POST['password']) == true) {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-
-        $isPasswordCorrect = password_verify($password, $hash);
-        
         $conn = mysqli_connect($servername, $dbusername, $dbpassword) or die("Could not connect to database");
         mysqli_select_db($conn, $dbname);
-        $query = "SELECT * FROM users WHERE Username = '$username' AND Password = '$password'";
-        $result = mysqli_query($conn, $query);
-        $rowSelected = mysqli_num_rows($result);
-      
-        if($rowSelected == true) {
-            header("Location: welcome.php");
-        } else {
 
+        $sql = "SELECT * FROM users WHERE Username='$username'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $hash_pwd = $row['Password'];
+
+        if (!password_verify($password, $hash_pwd)) {
             $_SESSION['fail'] = $_SESSION['fail'] + 1;
-            //echo $hashPass;
-            echo "User or Password is Wrong!";
+            echo "Wrong Username or Password";
+        } else {
+            $sq = "SELECT * FROM users WHERE Username = '$username' AND Password = '$hash_pwd'";
+            $result = $conn->query($sq);
+
+            header("Location: success.php");
         }
-    } else {
-        
     }
 } else {
     $_SESSION['fail'] = 0;
 }
 ?>
-
-
 
 
 <head> <title>Login page</title> </head>
@@ -72,3 +65,4 @@ if (isset($_SESSION['fail']) == true) {
 <form method ="post" action="Signup.php">
     <input type="submit" value="Sign up">
 </form>
+

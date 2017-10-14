@@ -9,6 +9,4 @@ header("Location: index.php");
 $_SESSION['authenticated'] = false;
 //header('location: indx.php');
 
-
-
 ?>

@@ -4,9 +4,6 @@
         <h1> Sign up </h1>
     </body>
 
-
-
-
 <form method ="post" action="AddToTable.php">
     <label for ="Username">Username:</label><br/>
     <input type="text" name="username" id="username"><br/>

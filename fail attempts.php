@@ -1,6 +1,5 @@
 <?php
-session_start();
-session_destroy();
- echo "Invalid username/password!" . $_SESSION['failed'];
+session_start();  
+    echo "Invalid username/password! " . $_SESSION['fail'];
 
 ?>
